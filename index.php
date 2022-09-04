@@ -1,3 +1,10 @@
+<?php
+  session_start();
+  if(isset($_GET['login']) && $_GET['login'] == 'autenticar'){
+    echo'<div class="alerta" role="alert">Autenticação nescessaria!</div>';
+}
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,6 +17,22 @@
         padding: 30px 0 0 0;
         width: 350px;
         margin: 0 auto;
+      }
+      .erro{
+        background: red;
+        color: white;
+        text-align: center;
+        border-radius: 10px;
+        height: 35px;
+        margin-top: 6px;
+      }
+      .alerta{
+        background: red;
+        color: white;
+        text-align: center;
+        height: 50px;
+        padding: 0px 6px;
+        font-size: 30px;
       }
     </style>
   </head>
@@ -36,6 +59,15 @@
                   <input type="password" class="form-control" name="senha" placeholder="Senha">
                 </div>
                 <button class="btn btn-lg btn-info btn-block" type="submit">Entrar</button>
+                <?php
+                  if(isset($_GET['login']) && $_GET['login'] == 'erro'){
+                ?>
+                  <div class="erro">
+                    <h4>Usuário ou senha icorreto!</h4>
+                  </div>
+                <?php
+                  }
+                ?>
               </form>
             </div>
           </div>

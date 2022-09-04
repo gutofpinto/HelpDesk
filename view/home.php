@@ -1,7 +1,15 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['autenticado'])){
+    header('location: http://localhost/helpDesk/index.php?login=autenticar');
+  }
+  ?>
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
+    <link rel="shortcut icon" href="../favicon.ico"/>
     <title>App Help Desk</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <style>
@@ -29,10 +37,10 @@
             <div class="card-body">
               <div class="row">
                 <div class="col-6 d-flex justify-content-center">
-                  <img src="../img/formulario_abrir_chamado.png" width="70" height="70">
+                  <a href="../view/abrir_chamado.php"><img src="../img/formulario_abrir_chamado.png" width="70" height="70"></a>
                 </div>
                 <div class="col-6 d-flex justify-content-center">
-                  <img src="../img/formulario_consultar_chamado.png" width="70" height="70">
+                  <a href="../view/consultar_chamado.php"><img src="../img/formulario_consultar_chamado.png" width="70" height="70"></a>
                 </div>
               </div>
             </div>
